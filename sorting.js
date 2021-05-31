@@ -112,7 +112,25 @@ const strNums = ["1","4","1","5","9","2","6","5","3","5","8","9","7","9","3","2"
     },
   ]
 
+  //  //using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
+  const weatherStates = (arr) => {
+    let holdingArray = [];
+    let results = [];
+    for(let obj of arr) {
+      // first push all of the weather state names into a holding array.
+      holdingArray.push(obj.weather_state_name)
+    }
+    // next, push only unique items in the hoding array to the results array 
+   for(let i=0; i<holdingArray.length; i++) {
+     // if the index i and the indexOf the item match, then this means the item is unique, so then push it to the restuls array.
+     if(i === holdingArray.indexOf(holdingArray[i]))
+     results.push(holdingArray[i])
+   }
+    return results;
+  }
 
+
+ console.log(weatherStates(weather))
   //find the id of the object in weather that has a min_temp of 15.915
  
   const idealTemp = weather.find((item) => {
